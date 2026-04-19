@@ -1,10 +1,17 @@
-# Aligning VLM Representations to Dense Visual Features for Modular 3D Generation
+# GAP3D
 
 This repository contains the code accompanying the paper **"GAP3D: Generative Alignment of VLM Latents to Patch-Level Embeddings for 3D Generation"**. We propose a modular, diffusion-based approach that aligns VLM-generated latents directly to the complete, patch-level feature space of a pre-trained image encoder (DINOv2), enabling a frozen downstream 3D generative model (TRELLIS) to utilize a VLM as prompt encoder while maintaining a spatially structured conditioning signal.
 
-Our method trains a diffusion transformer to map soft-token latents from a frozen Qwen2.5-VL-3B VLM to the full DINOv2 ViT-L/14 embedding space (CLS + 4 register + 1369 patch tokens), and feeds the generated embeddings into the frozen TRELLIS image-to-3D pipeline for text-to-3D and emergent multimodal-to-3D generation.
+Our approach builds on [BLIP3-o](https://github.com/JiuhaiChen/BLIP3o), which uses a diffusion transformer to map VLM latents to a small set of pooled CLIP-style image embeddings. We extend this paradigm to the full, spatially structured patch-level embedding space of a pre-trained image encoder (DINOv2 ViT-L/14), jointly generating CLS, 4 register, and 1369 patch tokens from a frozen Qwen2.5-VL-3B VLM. The generated embeddings are fed into the frozen [TRELLIS](https://github.com/microsoft/TRELLIS) image-to-3D pipeline, enabling modular text-to-3D and emergent multimodal-to-3D generation without end-to-end retraining.
 
-It is built around, and modifies, two existing open-source components:
+| Prompt | Generated Asset |
+|--------|----------------|
+| *"Vintage camera with leather case."* | <img src="generated_assets/vintage_camera.png" width="256"> |
+| *"Portable transistor radio, dark cover, speaker grille, brand logo on front."* | <img src="generated_assets/transistor_radio.png" width="256"> |
+| *"Metallic dog-like robot with articulated legs and futuristic design elements."* | <img src="generated_assets/robot_dog.png" width="256"> |
+| *"A weather-worn vintage delivery van with a boxy shape, a rusted faded green finish, square windows, rusty roof rack."* | <img src="generated_assets/vintage_van.png" width="256"> |
+
+GAP3D is built around, and modifies, two existing open-source components:
 
 - **BLIP3-o** (in `BLIP3o/`): our fork/extension of the unified multimodal BLIP3-o model, where we replace the original diffusion transformer head to jointly generate DINOv2 CLS, register, and patch embeddings from VLM latents.
 - **TRELLIS** (in `TRELLIS/`): our working copy of the TRELLIS 3D asset generation codebase, with local changes for this project (e.g., BLIP-conditioned image-to-3D and evaluation utilities).
