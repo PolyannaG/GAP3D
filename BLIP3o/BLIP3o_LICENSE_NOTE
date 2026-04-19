@@ -1,0 +1,3 @@
+The BLIP3-o repository (https://github.com/JiuhaiChen/BLIP3o) does not currently include an explicit LICENSE file.
+However, the authors have indicated in public discussions and associated model releases that the code is intended to be released under the Apache License 2.0.
+We use and modify BLIP3-o in this repository under that assumption for research purposes. We retain full attribution to the original authors.

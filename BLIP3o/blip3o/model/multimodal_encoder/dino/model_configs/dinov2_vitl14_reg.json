@@ -1,0 +1,10 @@
+{
+  "embed_dim": 1024,
+  "vision_cfg": {
+      "model_name": "dinov2_vitl14_reg",
+      "image_size": 518,
+      "width": 1024,
+      "patch_size": 14
+    }
+
+}

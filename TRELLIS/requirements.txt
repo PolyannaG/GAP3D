@@ -1,0 +1,43 @@
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+# BASIC
+pillow
+imageio
+imageio-ffmpeg
+tqdm
+easydict
+opencv-python-headless
+scipy
+ninja
+rembg
+onnxruntime
+trimesh
+open3d
+xatlas
+pyvista
+pymeshfix
+igraph
+transformers
+git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8
+
+# GPU EXTRAS aligned to torch 2.5.0 + cu124
+xformers==0.0.28.post2
+flash-attn
+spconv-cu120
+
+# nvdiffrast
+nvdiffrast @ git+https://github.com/NVlabs/nvdiffrast.git
+
+# diffoctreerast (has submodules; pip usually works, but clone+--recurse-submodules is safest)
+git+https://github.com/JeffreyXiang/diffoctreerast.git
+
+# diff-gaussian-rasterization from mip-splatting submodule
+git+https://github.com/autonomousvision/mip-splatting.git#subdirectory=submodules/diff-gaussian-rasterization
+
+# Kaolin — enable the matching find-links, then install
+-f https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.0_cu124.html
+kaolin
+
+# Optional demo
+gradio==4.44.1
+gradio_litmodel3d==0.0.1

@@ -1,0 +1,9 @@
+{
+  "embed_dim": 1024,
+  "summary_dim": 3072,
+  "vision_cfg": {
+      "model_name": "radio_v2.5-l",
+      "image_size": 256
+    }
+
+}

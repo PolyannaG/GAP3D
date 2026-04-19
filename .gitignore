@@ -1,0 +1,38 @@
+
+# macOS system file
+.DS_Store
+
+# Python cache and metadata
+__pycache__/
+*.py[cod]
+*.egg-info/
+# Ignore all __pycache__ folders recursively
+**/__pycache__/
+
+# Output directories and logs
+**/outputs/
+**/outputs*
+*.log
+**/slurm_out/
+*.mp4
+*.ply
+*.glb
+eval_finetuned_results/
+**results**
+**outputs**
+**cache**
+
+# Checkpoints and model weights
+checkpoints/
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+
+# Environment and secrets
+.env
+.env.local
+
+# Experiment tracking
+wandb/
+
